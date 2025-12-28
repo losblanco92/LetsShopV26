@@ -1,0 +1,122 @@
+2025-12-28 08:35:22 INFO  SubmitOrderTest:29 -
+			***Staring Submit Order Test******
+2025-12-28 08:35:22 INFO  SubmitOrderTest:30 -
+			***On Login Page******
+2025-12-28 08:35:22 INFO  SubmitOrderTest:33 -
+			***On Product Catalogue Page.Adding product to cart******
+2025-12-28 08:35:23 INFO  SubmitOrderTest:35 -
+			***Going to My Cart Page******
+2025-12-28 08:35:24 INFO  SubmitOrderTest:39 -
+			***Checking out, going to payments page******
+2025-12-28 08:35:25 INFO  SubmitOrderTest:42 -
+			***Selecting country******
+2025-12-28 08:35:25 INFO  SubmitOrderTest:45 -
+			***Placing order******
+2025-12-28 08:35:25 INFO  SubmitOrderTest:47 -
+			***Validating Order Confirmation message******
+2025-12-28 08:35:25 INFO  SubmitOrderTest:50 -
+			***Submit Order Test Finished******
+2025-12-28 08:35:29 INFO  SubmitOrderTest:57 -
+			***Staring Order History Test******
+2025-12-28 08:35:29 INFO  SubmitOrderTest:58 -
+			***On Login Page******
+2025-12-28 08:35:30 INFO  SubmitOrderTest:61 -
+			***Going To order History Page******
+2025-12-28 08:35:30 INFO  SubmitOrderTest:64 -
+			***Validating Order******
+2025-12-28 08:35:30 INFO  SubmitOrderTest:68 -
+			***Order History Test Finished******
+2025-12-28 08:52:49 INFO  SubmitOrderTest:29 -
+			***Staring Submit Order Test******
+2025-12-28 08:52:49 INFO  SubmitOrderTest:30 -
+			***On Login Page******
+2025-12-28 08:52:49 INFO  SubmitOrderTest:33 -
+			***On Product Catalogue Page.Adding product to cart******
+2025-12-28 08:52:49 INFO  SubmitOrderTest:35 -
+			***Going to My Cart Page******
+2025-12-28 08:52:51 INFO  SubmitOrderTest:39 -
+			***Checking out, going to payments page******
+2025-12-28 08:52:51 INFO  SubmitOrderTest:42 -
+			***Selecting country******
+2025-12-28 08:52:52 INFO  SubmitOrderTest:45 -
+			***Placing order******
+2025-12-28 08:52:52 INFO  SubmitOrderTest:47 -
+			***Validating Order Confirmation message******
+2025-12-28 08:52:52 INFO  SubmitOrderTest:50 -
+			***Submit Order Test Finished******
+2025-12-28 08:52:56 INFO  SubmitOrderTest:57 -
+			***Staring Order History Test******
+2025-12-28 08:52:56 INFO  SubmitOrderTest:58 -
+			***On Login Page******
+2025-12-28 08:52:56 INFO  SubmitOrderTest:61 -
+			***Going To order History Page******
+2025-12-28 08:52:57 INFO  SubmitOrderTest:64 -
+			***Validating Order******
+2025-12-28 08:52:57 INFO  SubmitOrderTest:68 -
+			***Order History Test Finished******
+2025-12-28 09:01:49 INFO  SubmitOrderTest:29 -
+			***Staring Submit Order Test******
+2025-12-28 09:01:49 INFO  SubmitOrderTest:30 -
+			***On Login Page******
+2025-12-28 09:01:49 INFO  SubmitOrderTest:33 -
+			***On Product Catalogue Page.Adding product to cart******
+2025-12-28 09:01:50 INFO  SubmitOrderTest:35 -
+			***Going to My Cart Page******
+2025-12-28 09:01:51 INFO  SubmitOrderTest:39 -
+			***Checking out, going to payments page******
+2025-12-28 09:01:52 INFO  SubmitOrderTest:42 -
+			***Selecting country******
+2025-12-28 09:01:52 INFO  SubmitOrderTest:45 -
+			***Placing order******
+2025-12-28 09:01:52 INFO  SubmitOrderTest:47 -
+			***Validating Order Confirmation message******
+2025-12-28 09:01:53 INFO  SubmitOrderTest:50 -
+			***Submit Order Test Finished******
+2025-12-28 09:01:55 INFO  SubmitOrderTest:57 -
+			***Staring Order History Test******
+2025-12-28 09:01:55 INFO  SubmitOrderTest:58 -
+			***On Login Page******
+2025-12-28 09:01:56 INFO  SubmitOrderTest:61 -
+			***Going To order History Page******
+2025-12-28 09:01:56 INFO  SubmitOrderTest:64 -
+			***Validating Order******
+2025-12-28 09:01:56 INFO  SubmitOrderTest:68 -
+			***Order History Test Finished******
+2025-12-28 09:29:52 INFO  SubmitOrderTest:29 -
+			***Staring Submit Order Test******
+2025-12-28 09:29:52 INFO  SubmitOrderTest:30 -
+			***On Login Page******
+2025-12-28 09:29:52 INFO  SubmitOrderTest:33 -
+			***On Product Catalogue Page.Adding product to cart******
+2025-12-28 09:29:52 INFO  SubmitOrderTest:35 -
+			***Going to My Cart Page******
+2025-12-28 09:29:54 INFO  SubmitOrderTest:39 -
+			***Checking out, going to payments page******
+2025-12-28 09:29:54 INFO  SubmitOrderTest:42 -
+			***Selecting country******
+2025-12-28 09:29:55 INFO  SubmitOrderTest:45 -
+			***Placing order******
+2025-12-28 09:29:55 INFO  SubmitOrderTest:47 -
+			***Validating Order Confirmation message******
+2025-12-28 09:29:55 INFO  SubmitOrderTest:50 -
+			***Submit Order Test Finished******
+2025-12-28 09:29:58 INFO  SubmitOrderTest:57 -
+			***Staring Order History Test******
+2025-12-28 09:29:58 INFO  SubmitOrderTest:58 -
+			***On Login Page******
+2025-12-28 09:29:58 INFO  SubmitOrderTest:61 -
+			***Going To order History Page******
+2025-12-28 09:29:59 INFO  SubmitOrderTest:64 -
+			***Validating Order******
+2025-12-28 09:29:59 INFO  SubmitOrderTest:68 -
+			***Order History Test Finished******
+2025-12-28 09:36:57 INFO  AccountRegistrationTest:16 -
+			********Starting Account Registration Test. Opening Registration Form**********
+2025-12-28 09:36:57 INFO  AccountRegistrationTest:18 -
+			********Entering Details In Registration Form**********
+2025-12-28 09:37:00 INFO  AccountRegistrationTest:29 -
+			********Clicking on Register**********
+2025-12-28 09:37:00 INFO  AccountRegistrationTest:31 -
+			********Validating Expected Message**********
+2025-12-28 09:37:00 INFO  AccountRegistrationTest:35 -
+			********Account Registration Test Finished*********

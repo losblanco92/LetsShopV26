@@ -3,6 +3,20 @@
 <suite name="Failed suite [Surefire suite]" verbose="0">
   <test thread-count="5" name="Surefire test(failed)" verbose="0">
     <classes>
+      <class name="testCases.AccountRegistrationTest">
+        <methods>
+          <include name="tearDown"/>
+          <include name="setUp"/>
+          <include name="verify_account_registration"/>
+        </methods>
+      </class> <!-- testCases.AccountRegistrationTest -->
+      <class name="testCases.LoginDDTest">
+        <methods>
+          <include name="verifyLogin"/>
+          <include name="tearDown"/>
+          <include name="setUp"/>
+        </methods>
+      </class> <!-- testCases.LoginDDTest -->
       <class name="testCases.SubmitOrderTest">
         <methods>
           <include name="submitOrder"/>
@@ -11,20 +25,6 @@
           <include name="setUp"/>
         </methods>
       </class> <!-- testCases.SubmitOrderTest -->
-      <class name="testCases.LoginDDTest">
-        <methods>
-          <include name="verifyLogin"/>
-          <include name="tearDown"/>
-          <include name="setUp"/>
-        </methods>
-      </class> <!-- testCases.LoginDDTest -->
-      <class name="testCases.AccountRegistrationTest">
-        <methods>
-          <include name="tearDown"/>
-          <include name="setUp"/>
-          <include name="verify_account_registration"/>
-        </methods>
-      </class> <!-- testCases.AccountRegistrationTest -->
     </classes>
   </test> <!-- Surefire test(failed) -->
 </suite> <!-- Failed suite [Surefire suite] -->

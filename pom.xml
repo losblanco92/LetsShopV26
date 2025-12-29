@@ -6,11 +6,7 @@
 	<artifactId>LetsShopV26</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
 
-	<profiles>
-	<profile>
-		<id>Regression</id>
-		<build>
-			<pluginManagement>
+			<build>
 
 				<plugins>
 					<plugin>
@@ -32,47 +28,10 @@
 
 				</plugins>
 
-			</pluginManagement>
 
-
-		</build>
-	</profile>
-	
-	<profile>
-		<id>Registration</id>
-		<build>
-			<pluginManagement>
-
-				<plugins>
-					<plugin>
-						<groupId>org.apache.maven.plugins</groupId>
-						<artifactId>maven-compiler-plugin</artifactId>
-						<version>3.11.0</version>
-					</plugin>
-
-					<plugin>
-						<groupId>org.apache.maven.plugins</groupId>
-						<artifactId>maven-surefire-plugin</artifactId>
-						<version>3.2.2</version>
-						<configuration>
-							<suiteXmlFiles>
-								<suiteXmlFile>suite/groupTesting.xml</suiteXmlFile>
-							</suiteXmlFiles>
-						</configuration>
-					</plugin>
-
-				</plugins>
-
-			</pluginManagement>
-
-
-		</build>
-	</profile>
-	</profiles>
-	
-	
-
-
+			</build>
+		
+			
 	<dependencies>
 		<dependency>
 			<groupId>org.seleniumhq.selenium</groupId>

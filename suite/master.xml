@@ -1,17 +1,25 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd">
-<suite name="Suite">
-<listeners>
-<listener   class-name = "utilities.ExtentReportManager"/>
-</listeners>
-  <test thread-count="5" name="Test">
-  <parameter name ="os" value="Windows"/>
-  <parameter name ="browser" value="chrome"/>
-    <classes>
-    
-           <class name="testCases.SubmitOrderTest"/>
-     <!--  <class name="testCases.AccountRegistrationTest"/>-->
-      <!-- <class name="testCases.LoginDDTest"/>--> 
-      </classes>
-  </test> <!-- Test -->
-</suite> <!-- MasterSuite -->
+<suite name="Suite" thread-count="5" parallel="tests">
+	<listeners>
+		<listener class-name="utilities.ExtentReportManager" />
+	</listeners>
+	<test name="Submit Order">
+		<parameter name="os" value="Windows" />
+		<parameter name="browser" value="chrome" />
+		<classes>
+			<class name="testCases.SubmitOrderTest" />
+			<!-- <class name="testCases.LoginDDTest"/>-->
+		</classes>
+	</test> <!--
+	Test -->
+
+	<test name="Account Registration">
+		<parameter name="os" value="Windows" />
+		<parameter name="browser" value="chrome" />
+		<classes>
+			<class name="testCases.AccountRegistrationTest" />
+		</classes>
+	</test>
+</suite> <!--
+MasterSuite -->

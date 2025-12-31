@@ -1,4 +1,4 @@
-package AbstractComponents;
+package abstractComponents;
 
 import java.time.Duration;
 import java.util.List;

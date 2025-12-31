@@ -34,10 +34,12 @@ public class BaseClass {
 	public WebDriver driver;
 	public LoginPage loginPage;
 	public Logger logger;
+	String os;
+	String br;
 
 	@BeforeMethod(alwaysRun = true)
-	@Parameters({ "os", "browser" })
-	public LoginPage setUp(String os, String br) throws IOException {
+	//@Parameters({ "os", "browser" })
+	public LoginPage launchApplication() throws IOException {
 
 		pr = new Properties();
 		fis = new FileInputStream(".\\src\\test\\resources\\config.properties");
@@ -85,7 +87,7 @@ public class BaseClass {
 
 		if (pr.getProperty("exe_env").equalsIgnoreCase("local"))
 
-		{// String br= pr.getProperty("browser");
+		{ br= pr.getProperty("browser");
 
 			switch (br.toLowerCase()) {
 			case "chrome":

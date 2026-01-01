@@ -11,6 +11,7 @@ import java.util.Properties;
 
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
+import org.apache.xmlbeans.impl.xb.xsdschema.Public;
 import org.openqa.selenium.OutputType;
 import org.openqa.selenium.Platform;
 import org.openqa.selenium.TakesScreenshot;
@@ -36,10 +37,9 @@ public class BaseClass {
 	public Logger logger;
 	String os;
 	String br;
-
-	@BeforeMethod(alwaysRun = true)
-	//@Parameters({ "os", "browser" })
-	public LoginPage launchApplication() throws IOException {
+	
+	// @Parameters({ "os", "browser" })
+	public WebDriver initializeBrowser() throws IOException {
 
 		pr = new Properties();
 		fis = new FileInputStream(".\\src\\test\\resources\\config.properties");
@@ -52,8 +52,8 @@ public class BaseClass {
 			DesiredCapabilities cap = new DesiredCapabilities();
 			if (os.equalsIgnoreCase("windows")) {
 				cap.setPlatform(Platform.WIN11);
-				} 
-			
+			}
+
 			else if (os.equalsIgnoreCase("linux")) {
 				cap.setPlatform(Platform.LINUX);
 			}
@@ -79,6 +79,7 @@ public class BaseClass {
 				break;
 			default:
 				System.out.println("Wrong browser");
+				return null;
 
 			}
 
@@ -87,7 +88,8 @@ public class BaseClass {
 
 		if (pr.getProperty("exe_env").equalsIgnoreCase("local"))
 
-		{ br= pr.getProperty("browser");
+		{
+			br = pr.getProperty("browser");
 
 			switch (br.toLowerCase()) {
 			case "chrome":
@@ -109,8 +111,15 @@ public class BaseClass {
 		driver.manage().window().maximize();
 		driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
 
-		driver.get(pr.getProperty("url"));
+		return driver;
 
+	}
+
+	@BeforeMethod(alwaysRun = true)
+	public LoginPage launchApplication() throws IOException {
+
+		driver = initializeBrowser();
+		driver.get(pr.getProperty("url"));
 		loginPage = new LoginPage(driver);
 		return loginPage;
 

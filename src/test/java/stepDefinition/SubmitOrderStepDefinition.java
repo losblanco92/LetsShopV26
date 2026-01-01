@@ -14,20 +14,19 @@ import pageObjects.PaymentPage;
 import pageObjects.ProductCataloguePage;
 import testBase.BaseClass;
 
-public class SubmitOrderStepDefinition extends BaseClass {
-	public LoginPage loginPage;
+public class SubmitOrderStepDefinition {
+	
 	public ProductCataloguePage productCataloguePage;
 	public PaymentPage paymentPage;
 	public MyCartPage myCartPage;
 	public OrderConfirmationPage orderConfirmationPage;
-	@Given("I landed on Ecommerce page")
-	public void i_landed_on_ecommerce_page() throws IOException {
-     loginPage = launchApplication();
-	}
 
-	@Given("^Logged in with username(.+)and password(.+)$")
-	public void logged_in_with_username_and_password(String username, String password) {
-     productCataloguePage = loginPage.loginApp(username.trim(), password.trim());
+    @Given("^User logged in with username(.+)and password(.+)$")
+	public void user_logged_in_with_username_and_password(String username, String password)
+    {
+    	
+    	productCataloguePage = Hooks.loginPage.loginApp(username.trim(), password.trim());
+
 
 	}
    @When("^I add product (.+) to the cart$")
@@ -47,8 +46,8 @@ public class SubmitOrderStepDefinition extends BaseClass {
 
 	@When("Enter payment details and place order")
 	public void enter_payment_details_and_place_order() {
-		paymentPage.enterCountry(pr.getProperty("selectedCountry"));
-		paymentPage.selectCountry(pr.getProperty("country"));
+		paymentPage.enterCountry(Hooks.pr.getProperty("selectedCountry"));
+		paymentPage.selectCountry(Hooks.pr.getProperty("country"));
 		orderConfirmationPage = paymentPage.placeOrder();
 	}
 

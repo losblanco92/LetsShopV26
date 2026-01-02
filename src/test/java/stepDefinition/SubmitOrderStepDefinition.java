@@ -4,6 +4,7 @@ import java.io.IOException;
 
 import org.testng.Assert;
 
+import hooks.Hooks;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
@@ -21,7 +22,7 @@ public class SubmitOrderStepDefinition {
 	public MyCartPage myCartPage;
 	public OrderConfirmationPage orderConfirmationPage;
 
-    @Given("^User logged in with username(.+)and password(.+)$")
+    @Given("^User logged in with username(.+) and password(.+)$")
 	public void user_logged_in_with_username_and_password(String username, String password)
     {
     	

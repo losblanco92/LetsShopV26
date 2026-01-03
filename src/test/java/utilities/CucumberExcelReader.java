@@ -10,7 +10,7 @@ public class CucumberExcelReader {
 	public CucumberExcelReader(String excelPath) {
         try {
             FileInputStream fis = new FileInputStream(excelPath);
-            workbook = WorkbookFactory.create(fis);
+            workbook = WorkbookFactory.create(fis); //converting workbook into a readable format
         } catch (Exception e) {
             e.printStackTrace();
         }

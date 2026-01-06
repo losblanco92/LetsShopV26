@@ -115,7 +115,7 @@ public class BaseClass {
 
 	}
 
-	//@BeforeMethod(alwaysRun = true)
+	@BeforeMethod(alwaysRun = true)
 	public LoginPage launchApplication() throws IOException {
 
 		driver = initializeBrowser();
@@ -125,7 +125,7 @@ public class BaseClass {
 
 	}
 
-	//@AfterMethod(alwaysRun = true)
+	@AfterMethod(alwaysRun = true)
 	public void tearDown() {
 		driver.quit();
 	}

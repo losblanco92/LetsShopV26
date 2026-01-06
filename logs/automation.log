@@ -1,10 +1,38 @@
-2026-01-02 19:43:58 INFO  AccountRegistrationTest:16 -
+2026-01-06 18:41:43 INFO  SubmitOrderTest:29 -
+			***Staring Submit Order Test******
+2026-01-06 18:41:44 INFO  SubmitOrderTest:30 -
+			***On Login Page******
+2026-01-06 18:41:44 INFO  SubmitOrderTest:33 -
+			***On Product Catalogue Page.Adding product to cart******
+2026-01-06 18:41:44 INFO  SubmitOrderTest:35 -
+			***Going to My Cart Page******
+2026-01-06 18:41:46 INFO  SubmitOrderTest:39 -
+			***Checking out, going to payments page******
+2026-01-06 18:41:46 INFO  SubmitOrderTest:42 -
+			***Selecting country******
+2026-01-06 18:41:46 INFO  SubmitOrderTest:45 -
+			***Placing order******
+2026-01-06 18:41:47 INFO  SubmitOrderTest:47 -
+			***Validating Order Confirmation message******
+2026-01-06 18:41:47 INFO  SubmitOrderTest:50 -
+			***Submit Order Test Finished******
+2026-01-06 18:41:51 INFO  SubmitOrderTest:57 -
+			***Staring Order History Test******
+2026-01-06 18:41:51 INFO  SubmitOrderTest:58 -
+			***On Login Page******
+2026-01-06 18:41:51 INFO  SubmitOrderTest:61 -
+			***Going To order History Page******
+2026-01-06 18:41:51 INFO  SubmitOrderTest:64 -
+			***Validating Order******
+2026-01-06 18:41:51 INFO  SubmitOrderTest:68 -
+			***Order History Test Finished******
+2026-01-06 18:41:56 INFO  AccountRegistrationTest:16 -
 			********Starting Account Registration Test. Opening Registration Form**********
-2026-01-02 19:43:58 INFO  AccountRegistrationTest:18 -
+2026-01-06 18:41:56 INFO  AccountRegistrationTest:18 -
 			********Entering Details In Registration Form**********
-2026-01-02 19:43:59 INFO  AccountRegistrationTest:29 -
+2026-01-06 18:41:58 INFO  AccountRegistrationTest:29 -
 			********Clicking on Register**********
-2026-01-02 19:43:59 INFO  AccountRegistrationTest:31 -
+2026-01-06 18:41:58 INFO  AccountRegistrationTest:31 -
 			********Validating Expected Message**********
-2026-01-02 19:44:00 INFO  AccountRegistrationTest:35 -
+2026-01-06 18:41:58 INFO  AccountRegistrationTest:35 -
 			********Account Registration Test Finished*********

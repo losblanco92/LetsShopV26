@@ -4,17 +4,27 @@
   <listeners>
     <listener class-name="utilities.ExtentReportManager"/>
   </listeners>
-  <test thread-count="5" name="Linux-chrome(failed)">
-    <parameter name="os" value="Linux"/>
+  <test thread-count="5" name="Submit Order(failed)">
+    <parameter name="os" value="Windows"/>
+    <parameter name="browser" value="chrome"/>
+    <classes>
+      <class name="testCases.SubmitOrderTest">
+        <methods>
+          <include name="submitOrder"/>
+          <include name="orderHistoryTest"/>
+        </methods>
+      </class> <!-- testCases.SubmitOrderTest -->
+    </classes>
+  </test> <!-- Submit Order(failed) -->
+  <test thread-count="5" name="Account Registration(failed)">
+    <parameter name="os" value="Windows"/>
     <parameter name="browser" value="chrome"/>
     <classes>
       <class name="testCases.AccountRegistrationTest">
         <methods>
-          <include name="tearDown"/>
-          <include name="setUp"/>
           <include name="verify_account_registration"/>
         </methods>
       </class> <!-- testCases.AccountRegistrationTest -->
     </classes>
-  </test> <!-- Linux-chrome(failed) -->
+  </test> <!-- Account Registration(failed) -->
 </suite> <!-- Failed suite [Suite] -->

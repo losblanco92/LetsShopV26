@@ -1,47 +1,59 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testng-results ignored="0" total="1" passed="1" failed="0" skipped="0">
+<testng-results ignored="0" total="3" passed="3" failed="0" skipped="0">
   <reporter-output>
   </reporter-output>
-  <suite started-at="2026-01-03T09:53:46 IST" name="Default suite" finished-at="2026-01-03T09:53:58 IST" duration-ms="12152">
+  <suite started-at="2026-01-06T18:41:37 IST" name="Suite" finished-at="2026-01-06T18:41:58 IST" duration-ms="20845">
     <groups>
-      <group name="cucumber">
-        <method signature="AbstractTestNGCucumberTests.runScenario(io.cucumber.testng.PickleWrapper,io.cucumber.testng.FeatureWrapper)[pri:0, instance:cucumberRunner.TestRunner@1807e3f6]" name="runScenario" class="io.cucumber.testng.AbstractTestNGCucumberTests"/>
-      </group> <!-- cucumber -->
+      <group name="Regression">
+        <method signature="SubmitOrderTest.submitOrder()[pri:0, instance:testCases.SubmitOrderTest@268f106e]" name="submitOrder" class="testCases.SubmitOrderTest"/>
+      </group> <!-- Regression -->
+      <group name="Retry">
+        <method signature="AccountRegistrationTest.verify_account_registration()[pri:0, instance:testCases.AccountRegistrationTest@29d80d2b]" name="verify_account_registration" class="testCases.AccountRegistrationTest"/>
+      </group> <!-- Retry -->
     </groups>
-    <test started-at="2026-01-03T09:53:46 IST" name="Default test" finished-at="2026-01-03T09:53:58 IST" duration-ms="12152">
-      <class name="cucumberRunner.TestRunner">
-        <test-method is-config="true" signature="setUpClass(org.testng.ITestContext)[pri:0, instance:cucumberRunner.TestRunner@1807e3f6]" started-at="2026-01-03T09:53:46 IST" name="setUpClass" finished-at="2026-01-03T09:53:47 IST" duration-ms="1222" status="PASS">
-          <params>
-            <param index="0">
-              <value>
-                <![CDATA[org.testng.TestRunner@7e0f9528]]>
-              </value>
-            </param>
-          </params>
+    <test started-at="2026-01-06T18:41:37 IST" name="Submit Order" finished-at="2026-01-06T18:41:52 IST" duration-ms="14477">
+      <class name="testCases.SubmitOrderTest">
+        <test-method is-config="true" signature="launchApplication()[pri:0, instance:testCases.SubmitOrderTest@268f106e]" started-at="2026-01-06T18:41:37 IST" name="launchApplication" finished-at="2026-01-06T18:41:43 IST" duration-ms="6017" status="PASS">
           <reporter-output>
           </reporter-output>
-        </test-method> <!-- setUpClass -->
-        <test-method signature="runScenario(io.cucumber.testng.PickleWrapper,io.cucumber.testng.FeatureWrapper)[pri:0, instance:cucumberRunner.TestRunner@1807e3f6]" started-at="2026-01-03T09:53:47 IST" name="runScenario" description="Runs Cucumber Scenarios" data-provider="scenarios" finished-at="2026-01-03T09:53:57 IST" duration-ms="10241" status="PASS">
-          <params>
-            <param index="0">
-              <value>
-                <![CDATA["Positive test for successfully placing an order"]]>
-              </value>
-            </param>
-            <param index="1">
-              <value>
-                <![CDATA["Successfully place an order on the website"]]>
-              </value>
-            </param>
-          </params>
+        </test-method> <!-- launchApplication -->
+        <test-method signature="submitOrder()[pri:0, instance:testCases.SubmitOrderTest@268f106e]" started-at="2026-01-06T18:41:43 IST" name="submitOrder" finished-at="2026-01-06T18:41:47 IST" duration-ms="3338" status="PASS">
           <reporter-output>
           </reporter-output>
-        </test-method> <!-- runScenario -->
-        <test-method is-config="true" signature="tearDownClass()[pri:0, instance:cucumberRunner.TestRunner@1807e3f6]" started-at="2026-01-03T09:53:57 IST" name="tearDownClass" finished-at="2026-01-03T09:53:58 IST" duration-ms="627" status="PASS">
+        </test-method> <!-- submitOrder -->
+        <test-method is-config="true" signature="tearDown()[pri:0, instance:testCases.SubmitOrderTest@268f106e]" started-at="2026-01-06T18:41:47 IST" name="tearDown" finished-at="2026-01-06T18:41:47 IST" duration-ms="248" status="PASS">
           <reporter-output>
           </reporter-output>
-        </test-method> <!-- tearDownClass -->
-      </class> <!-- cucumberRunner.TestRunner -->
-    </test> <!-- Default test -->
-  </suite> <!-- Default suite -->
+        </test-method> <!-- tearDown -->
+        <test-method is-config="true" signature="launchApplication()[pri:0, instance:testCases.SubmitOrderTest@268f106e]" started-at="2026-01-06T18:41:47 IST" name="launchApplication" finished-at="2026-01-06T18:41:51 IST" duration-ms="3571" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- launchApplication -->
+        <test-method signature="orderHistoryTest()[pri:0, instance:testCases.SubmitOrderTest@268f106e]" started-at="2026-01-06T18:41:51 IST" name="orderHistoryTest" finished-at="2026-01-06T18:41:51 IST" depends-on-methods="testCases.SubmitOrderTest.submitOrder" duration-ms="811" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- orderHistoryTest -->
+        <test-method is-config="true" signature="tearDown()[pri:0, instance:testCases.SubmitOrderTest@268f106e]" started-at="2026-01-06T18:41:51 IST" name="tearDown" finished-at="2026-01-06T18:41:52 IST" duration-ms="176" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- tearDown -->
+      </class> <!-- testCases.SubmitOrderTest -->
+    </test> <!-- Submit Order -->
+    <test started-at="2026-01-06T18:41:52 IST" name="Account Registration" finished-at="2026-01-06T18:41:58 IST" duration-ms="6072">
+      <class name="testCases.AccountRegistrationTest">
+        <test-method is-config="true" signature="launchApplication()[pri:0, instance:testCases.AccountRegistrationTest@29d80d2b]" started-at="2026-01-06T18:41:52 IST" name="launchApplication" finished-at="2026-01-06T18:41:56 IST" duration-ms="3739" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- launchApplication -->
+        <test-method signature="verify_account_registration()[pri:0, instance:testCases.AccountRegistrationTest@29d80d2b]" started-at="2026-01-06T18:41:56 IST" name="verify_account_registration" finished-at="2026-01-06T18:41:58 IST" duration-ms="2148" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- verify_account_registration -->
+        <test-method is-config="true" signature="tearDown()[pri:0, instance:testCases.AccountRegistrationTest@29d80d2b]" started-at="2026-01-06T18:41:58 IST" name="tearDown" finished-at="2026-01-06T18:41:58 IST" duration-ms="183" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- tearDown -->
+      </class> <!-- testCases.AccountRegistrationTest -->
+    </test> <!-- Account Registration -->
+  </suite> <!-- Suite -->
 </testng-results>

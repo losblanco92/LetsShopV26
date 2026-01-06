@@ -40,7 +40,8 @@ public class ExtentReportManager extends BaseClass implements ITestListener {
 		extent.setSystemInfo("Module", "Admin");
 		extent.setSystemInfo("Sub Module", "Customers");
 		extent.setSystemInfo("User Name", System.getProperty("user.name"));
-		extent.setSystemInfo("Environemnt", "QA");
+		extent.setSystemInfo("Environment", "QA");
+
 
 		String os = testContext.getCurrentXmlTest().getParameter("os");
 		extent.setSystemInfo("Operating System", os);
@@ -54,46 +55,50 @@ public class ExtentReportManager extends BaseClass implements ITestListener {
 		}
 
 	}
+	
+	public void onTestStart(ITestResult result) {
+        ExtentTest extentTest =
+                extent.createTest(result.getMethod().getMethodName())
+                      .assignCategory(result.getMethod().getGroups());
+
+        test.set(extentTest);  
+    }
 
 	public void onTestSuccess(ITestResult result) {
 
-		ExtentTest extentTest = extent.createTest(result.getMethod().getMethodName());
-		extentTest.assignCategory(result.getMethod().getGroups());
-		extentTest.log(Status.PASS, result.getName() + " got successfully executed");
-		test.set(extentTest);
-	}
+		
+		test.get().log(Status.PASS, result.getName() + " passed");
+    }
+	
 
 	public void onTestFailure(ITestResult result) {
-		ExtentTest extentTest = extent.createTest(result.getMethod().getMethodName());
-		extentTest.assignCategory(result.getMethod().getGroups());
+		
 
-		extentTest.log(Status.FAIL, result.getName() + " got failed");
-		extentTest.log(Status.INFO, result.getThrowable().getMessage());
-
-		test.set(extentTest); 
+		test.get().log(Status.FAIL, result.getThrowable());
 
 		try {
 			WebDriver driver = ((BaseClass) result.getInstance()).driver;
 			String imgPath = ((BaseClass) result.getInstance()).captureScreen(result.getMethod().getMethodName(),
 					driver);
 
-			extentTest.addScreenCaptureFromPath(imgPath);
+			test.get().addScreenCaptureFromPath(imgPath);
 
 		} catch (Exception e) {
-			extentTest.log(Status.WARNING, "Unable to capture screenshot.");
+			test.get().log(Status.WARNING, "Unable to capture screenshot.");
 		}
 	}
 
 	public void onTestSkipped(ITestResult result) {
-		ExtentTest extentTest = extent.createTest(result.getMethod().getMethodName());
-	    extentTest.assignCategory(result.getMethod().getGroups());
-	    extentTest.log(Status.SKIP, result.getName() + " got skipped");
-	    test.set(extentTest);
+		
+		test.get().log(Status.SKIP, result.getName() + " got skipped");
+	  
 	}
 
 	public void onFinish(ITestContext testContext) {
 
 		extent.flush();
+		test.remove();
+
 
 	}
 

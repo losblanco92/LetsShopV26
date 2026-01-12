@@ -3,6 +3,7 @@ package pageObjects;
 import java.util.List;
 
 import org.openqa.selenium.By;
+import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
@@ -38,6 +39,10 @@ public class ProductCataloguePage extends AbstractComponent{
 	
 	
 	public void addToCart(String product) {
+		
+		waitForElementToDisappear(alert_login);
+		
+		scrollToBottom();
 		
 		for(int i=0; i<products.size(); i++)
 		{

@@ -12,19 +12,9 @@
         <methods>
           <include name="submitOrder"/>
           <include name="orderHistoryTest"/>
+          <include name="launchApplication"/>
         </methods>
       </class> <!-- testCases.SubmitOrderTest -->
     </classes>
   </test> <!-- Submit Order(failed) -->
-  <test thread-count="5" name="Account Registration(failed)">
-    <parameter name="os" value="Windows"/>
-    <parameter name="browser" value="chrome"/>
-    <classes>
-      <class name="testCases.AccountRegistrationTest">
-        <methods>
-          <include name="verify_account_registration"/>
-        </methods>
-      </class> <!-- testCases.AccountRegistrationTest -->
-    </classes>
-  </test> <!-- Account Registration(failed) -->
 </suite> <!-- Failed suite [Suite] -->

@@ -72,20 +72,20 @@ public class ExtentReportManager extends BaseClass implements ITestListener {
 	
 
 	public void onTestFailure(ITestResult result) {
-		
 
-		test.get().log(Status.FAIL, result.getThrowable());
+	    test.get().log(Status.FAIL, result.getThrowable());
 
-		try {
-			WebDriver driver = ((BaseClass) result.getInstance()).driver;
-			String imgPath = ((BaseClass) result.getInstance()).captureScreen(result.getMethod().getMethodName(),
-					driver);
+	    try {
+	        BaseClass base = (BaseClass) result.getInstance();
 
-			test.get().addScreenCaptureFromPath(imgPath);
+	        String imgPath =
+	            base.captureScreen(result.getMethod().getMethodName());
 
-		} catch (Exception e) {
-			test.get().log(Status.WARNING, "Unable to capture screenshot.");
-		}
+	        test.get().addScreenCaptureFromPath(imgPath);
+
+	    } catch (Exception e) {
+	        test.get().log(Status.WARNING, "Unable to capture screenshot.");
+	    }
 	}
 
 	public void onTestSkipped(ITestResult result) {

@@ -35,7 +35,7 @@
 <a href="#"><span class="badge badge-primary"></span></a>
 </li>
 <li class="m-r-10">
-<a href="#"><span class="badge badge-primary">Jan 3, 2026 09:52:20 am</span></a>
+<a href="#"><span class="badge badge-primary">Jan 12, 2026 07:56:42 pm</span></a>
 </li>
 </ul>
 </div>
@@ -86,7 +86,7 @@
           <div class="test-detail">
             <p class="name">Successfully place an order on the website</p>
             <p class="text-sm">
-              <span>9:52:22 am</span> / <span>00:00:09:787</span>
+              <span>7:56:43 pm</span> / <span>00:00:17:673</span>
               <span class="badge fail-bg log float-right">Fail</span>
             </p>
           </div>
@@ -95,9 +95,9 @@
 <div class="p-v-10">
 <div class="info">
 <h5 class="test-status text-fail">Successfully place an order on the website</h5>
-<span class='badge badge-success'>01.03.2026 9:52:22 am</span>
-<span class='badge badge-danger'>01.03.2026 9:52:31 am</span>
-<span class='badge badge-default'>00:00:09:787</span>
+<span class='badge badge-success'>01.12.2026 7:56:43 pm</span>
+<span class='badge badge-danger'>01.12.2026 7:57:01 pm</span>
+<span class='badge badge-default'>00:00:17:673</span>
 &middot; <span class='uri-anchor badge badge-default'>#test-id=1</span>
 <span title='Skip to the next failed step' class='badge badge-danger pointer float-right ne ml-1'><i class="fa fa-fast-forward"></i></span>
 <span title='Collapse all nodes' class='badge badge-default pointer float-right ct ml-1'><i class="fa fa-compress"></i></span>
@@ -147,23 +147,19 @@
       <div>
       </div>
                   </div>
-                  <div class="step pass-bg">
+                  <div class="step fail-bg">
                     <span>And Enter payment details and place order</span>
       <div>
-      </div>
-                  </div>
-                  <div class="step fail-bg">
-                    <span>Then "THANK YOU FOR THE ORDER." message is displayed on the confirmation page</span>
-      <div>
-        <textarea disabled class="code-block">java.lang.AssertionError: expected [false] but found [true]
-	at org.testng.Assert.fail(Assert.java:111)
-	at org.testng.Assert.failNotEquals(Assert.java:1590)
-	at org.testng.Assert.assertFalse(Assert.java:79)
-	at org.testng.Assert.assertFalse(Assert.java:89)
-	at stepDefinition.SubmitOrderStepDefinition.confirm_message(SubmitOrderStepDefinition.java:58)
-	at ✽."THANK YOU FOR THE ORDER." message is displayed on the confirmation page(file:///C:/Users/jusch/eclipse-workspace/LetsShopV26/features/SubmitOrder.feature:10)
+        <textarea disabled class="code-block">java.lang.NullPointerException: Cannot invoke "java.util.Properties.getProperty(String)" because "this.pr" is null
+	at stepDefinition.SubmitOrderStepDefinition.enter_payment_details_and_place_order(SubmitOrderStepDefinition.java:50)
+	at ✽.Enter payment details and place order(file:///C:/Users/jusch/OneDrive/Desktop/Cloned/LetsShopV261/./features/SubmitOrder.feature:9)
 </textarea>
       
+      </div>
+                  </div>
+                  <div class="step skip-bg">
+                    <span>Then "THANK YOU FOR THE ORDER." message is displayed on the confirmation page</span>
+      <div>Step skipped
       </div>
                   </div>
                   <div class="step pass-bg">
@@ -210,12 +206,12 @@
 <span class="meta">
 <span class='badge log badge-danger'>1</span>
 </span>
-<p class="name">java.lang.AssertionError</p>
+<p class="name">java.lang.NullPointerException</p>
 <p class="duration text-sm">1 tests</p>
 </div>
 <div class="test-contents d-none">
 <div class="info">
-<h4>java.lang.AssertionError</h4>
+<h4>java.lang.NullPointerException</h4>
 <span status="fail" class='badge log badge-danger'>1 failed</span>
 </div>
 <table class='table table-sm mt-4'>
@@ -229,11 +225,11 @@
 <tbody>
 <tr class="tag-test-status" status="fail">
 <td><span class="badge log fail-bg">Fail</span></td>
-<td>09:52:31 am</td>
+<td>19:57:01 pm</td>
 <td>
-<a href="#" class="linked" test-id='1' id='10'>Then "THANK YOU FOR THE ORDER." message is displayed on the confirmation page</a>
+<a href="#" class="linked" test-id='1' id='9'>And Enter payment details and place order</a>
 <div class="">
-<span class="badge badge-default">Successfully place an order on the website.Positive test for successfully placing an order.Then "THANK YOU FOR THE ORDER." message is displayed on the confirmation page</span>
+<span class="badge badge-default">Successfully place an order on the website.Positive test for successfully placing an order.And Enter payment details and place order</span>
 </div>
 </td>
 </tr>
@@ -254,13 +250,13 @@
 <div class="col-md-3">
 <div class="card"><div class="card-body">
 <p class="m-b-0">Started</p>
-<h3>Jan 3, 2026 09:52:20 am</h3>
+<h3>Jan 12, 2026 07:56:42 pm</h3>
 </div></div>
 </div>
 <div class="col-md-3">
 <div class="card"><div class="card-body">
 <p class="m-b-0">Ended</p>
-<h3>Jan 3, 2026 09:52:31 am</h3>
+<h3>Jan 12, 2026 07:57:01 pm</h3>
 </div></div>
 </div>
 <div class="col-md-3">
@@ -331,10 +327,10 @@
 </div>
 </div>
 <div class="card-footer">
-<div><small data-tooltip='85%'><b>6</b> steps passed</small></div>
+<div><small data-tooltip='71%'><b>5</b> steps passed</small></div>
 <div>
 <small data-tooltip='14%'><b>1</b> steps failed,
-<b>0</b> skipped, <b data-tooltip='%'>0</b> others
+<b>1</b> skipped, <b data-tooltip='%'>0</b> others
 </small>
 </div>
 </div>
@@ -350,7 +346,7 @@
 </div></div>
 <script>
 var timeline = {
-"Successfully place an order on the website":9.787
+"Successfully place an order on the website":17.673
 };
 </script>
 <div class="row">
@@ -370,10 +366,10 @@ warningChild: 0,
 skipChild: 0,
 infoChild: 0,
 grandChildCount: 5,
-passGrandChild: 6,
+passGrandChild: 5,
 failGrandChild: 1,
 warningGrandChild: 0,
-skipGrandChild: 0,
+skipGrandChild: 1,
 infoGrandChild: 0,
 eventsCount: 5,
 };

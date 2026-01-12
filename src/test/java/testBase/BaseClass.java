@@ -9,9 +9,9 @@ import java.time.Duration;
 import java.util.Date;
 import java.util.Properties;
 
+import org.apache.commons.io.FileUtils;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
-import org.apache.xmlbeans.impl.xb.xsdschema.Public;
 import org.openqa.selenium.OutputType;
 import org.openqa.selenium.Platform;
 import org.openqa.selenium.TakesScreenshot;
@@ -21,128 +21,111 @@ import org.openqa.selenium.edge.EdgeDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.remote.DesiredCapabilities;
 import org.openqa.selenium.remote.RemoteWebDriver;
-import org.testng.annotations.AfterMethod;
-import org.testng.annotations.BeforeMethod;
-import org.testng.annotations.Parameters;
 
 import pageObjects.LoginPage;
 
 public class BaseClass {
 
-	public Properties pr;
-	FileInputStream fis;
-	String url;
-	public WebDriver driver;
-	public LoginPage loginPage;
-	public Logger logger;
-	String os;
-	String br;
-	
-	// @Parameters({ "os", "browser" })
-	public WebDriver initializeBrowser() throws IOException {
+ 
+    protected static ThreadLocal<WebDriver> tlDriver = new ThreadLocal<>();
 
-		pr = new Properties();
-		fis = new FileInputStream(".\\src\\test\\resources\\config.properties");
-		pr.load(fis);
+    static protected Properties pr;
+     protected Logger logger;
+    protected LoginPage loginPage;
 
-		logger = LogManager.getLogger(this.getClass());
+    // ---------------- CONFIG + LOGGER ----------------
+    public void loadConfig() throws IOException {
+        pr = new Properties();
+        FileInputStream fis =
+            new FileInputStream("src/test/resources/config.properties");
+        pr.load(fis);
 
-		if (pr.getProperty("exe_env").equalsIgnoreCase("remote")) {
+        logger = LogManager.getLogger(this.getClass());
+        logger.info("Config file loaded successfully");
+    }
 
-			DesiredCapabilities cap = new DesiredCapabilities();
-			if (os.equalsIgnoreCase("windows")) {
-				cap.setPlatform(Platform.WIN11);
-			}
+    // ---------------- DRIVER INITIALIZATION ----------------
+    public WebDriver initializeBrowser() throws Exception {
 
-			else if (os.equalsIgnoreCase("linux")) {
-				cap.setPlatform(Platform.LINUX);
-			}
+        String env = pr.getProperty("exe_env");
+        String browser = pr.getProperty("browser");
 
-			else if (os.equalsIgnoreCase("mac")) {
-				cap.setPlatform(Platform.MAC);
-			}
+        WebDriver driver;
 
-			else {
-				System.out.println("No matching browser");
+        if (env.equalsIgnoreCase("remote")) {
 
-			}
+            DesiredCapabilities cap = new DesiredCapabilities();
+            cap.setBrowserName(browser);
+            cap.setPlatform(Platform.ANY);
 
-			switch (br.toLowerCase()) {
-			case "chrome":
-				cap.setBrowserName("chrome");
-				break;
-			case "edge":
-				cap.setBrowserName("edge");
-				break;
-			case "firefox":
-				cap.setBrowserName("firefox");
-				break;
-			default:
-				System.out.println("Wrong browser");
-				return null;
+            logger.info("Running tests on Selenium Grid");
 
-			}
+            driver = new RemoteWebDriver(
+                new URL(pr.getProperty("grid_url")), cap);
 
-			driver = new RemoteWebDriver(new URL("http://localhost:4444/wd/hub"), cap);
-		}
+        } else {
 
-		if (pr.getProperty("exe_env").equalsIgnoreCase("local"))
+            logger.info("Running tests locally on browser: " + browser);
 
-		{
-			br = pr.getProperty("browser");
+            switch (browser.toLowerCase()) {
+            case "chrome":
+                driver = new ChromeDriver();
+                break;
+            case "edge":
+                driver = new EdgeDriver();
+                break;
+            case "firefox":
+                driver = new FirefoxDriver();
+                break;
+            default:
+                throw new RuntimeException("Invalid browser name");
+            }
+        }
 
-			switch (br.toLowerCase()) {
-			case "chrome":
-				driver = new ChromeDriver();
-				break;
-			case "edge":
-				driver = new EdgeDriver();
-				break;
-			case "firefox":
-				driver = new FirefoxDriver();
-				break;
-			default:
-				System.out.println("Wrong browser");
-				return null;
+        driver.manage().window().maximize();
+        driver.manage().timeouts()
+              .implicitlyWait(Duration.ofSeconds(10));
 
-			}
-		}
+        tlDriver.set(driver);
+        return driver;
+    }
 
-		driver.manage().window().maximize();
-		driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
+    // ---------------- LAUNCH APPLICATION ----------------
+    public LoginPage launchApplication() throws Exception {
 
-		return driver;
+        WebDriver driver = initializeBrowser();
+        driver.get(pr.getProperty("url"));
 
-	}
+        logger.info("Application launched: " + pr.getProperty("url"));
 
-	@BeforeMethod(alwaysRun = true)
-	public LoginPage launchApplication() throws IOException {
+        loginPage = new LoginPage(driver);
+        return loginPage;
+    }
 
-		driver = initializeBrowser();
-		driver.get(pr.getProperty("url"));
-		loginPage = new LoginPage(driver);
-		return loginPage;
+    // ---------------- GET DRIVER ----------------
+    public WebDriver getDriver() {
+        return tlDriver.get();
+    }
 
-	}
+    // ---------------- SCREENSHOT UTILITY ----------------
+    public String captureScreen(String testName) throws IOException {
 
-	@AfterMethod(alwaysRun = true)
-	public void tearDown() {
-		driver.quit();
-	}
+        String timeStamp =
+            new SimpleDateFormat("yyyyMMdd_HHmmss").format(new Date());
 
-	public String captureScreen(String tname, WebDriver driver) throws IOException {
+        TakesScreenshot ts = (TakesScreenshot) getDriver();
+        File source = ts.getScreenshotAs(OutputType.FILE);
 
-		String timeStamp = new SimpleDateFormat("yyyyMMdd_hhmmss").format(new Date());
+        String targetPath =
+            System.getProperty("user.dir")
+            + "/screenshots/"
+            + testName + "_" + timeStamp + ".png";
 
-		TakesScreenshot takesScreenshot = (TakesScreenshot) driver;
-		File sourceFile = takesScreenshot.getScreenshotAs(OutputType.FILE);
+        File target = new File(targetPath);
+        FileUtils.copyFile(source, target);
 
-		String targetFilePath = System.getProperty("user.dir") + "\\screenshots\\" + tname + "_" + timeStamp + ".png";
-		File targetFile = new File(targetFilePath);
+        logger.info("Screenshot captured for test: " + testName);
 
-		sourceFile.renameTo(targetFile);
-
-		return targetFilePath;
-
-	}
+        return targetPath;
+    }
 }

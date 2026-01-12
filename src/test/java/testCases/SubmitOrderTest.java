@@ -20,8 +20,9 @@ import pageObjects.OrderHistoryPage;
 import pageObjects.PaymentPage;
 import pageObjects.ProductCataloguePage;
 import testBase.BaseClass;
+import testBase.TestNGBase;
 
-public class SubmitOrderTest extends BaseClass {
+public class SubmitOrderTest extends TestNGBase  {
 
 	@Test(groups="Regression")
 	public void submitOrder() throws IOException {
@@ -46,7 +47,7 @@ public class SubmitOrderTest extends BaseClass {
 		OrderConfirmationPage orderConfirmationPage = paymentPage.placeOrder();
 		logger.info("***Validating Order Confirmation message******");
 		boolean message = orderConfirmationPage.confirmationMessage();
-		Assert.assertTrue(message);
+		Assert.assertFalse(message);
 		logger.info("***Submit Order Test Finished******");
 
 	}

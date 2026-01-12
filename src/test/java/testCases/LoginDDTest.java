@@ -5,9 +5,10 @@ import org.testng.annotations.DataProvider;
 import org.testng.annotations.Test;
 
 import testBase.BaseClass;
+import testBase.TestNGBase;
 import utilities.DataProviders;
 
-public class LoginDDTest extends BaseClass {
+public class LoginDDTest extends TestNGBase  {
 
 	@Test(dataProvider = "LoginData", dataProviderClass = DataProviders.class)
 	public void verifyLogin(String email, String password, String exp) {

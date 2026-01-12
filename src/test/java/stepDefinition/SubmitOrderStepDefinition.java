@@ -15,7 +15,7 @@ import pageObjects.PaymentPage;
 import pageObjects.ProductCataloguePage;
 import testBase.BaseClass;
 
-public class SubmitOrderStepDefinition {
+public class SubmitOrderStepDefinition extends BaseClass {
 	
 	public ProductCataloguePage productCataloguePage;
 	public PaymentPage paymentPage;
@@ -47,8 +47,8 @@ public class SubmitOrderStepDefinition {
 
 	@When("Enter payment details and place order")
 	public void enter_payment_details_and_place_order() {
-		paymentPage.enterCountry(Hooks.pr.getProperty("selectedCountry"));
-		paymentPage.selectCountry(Hooks.pr.getProperty("country"));
+		paymentPage.enterCountry(pr.getProperty("selectedCountry"));
+		paymentPage.selectCountry(pr.getProperty("country"));
 		orderConfirmationPage = paymentPage.placeOrder();
 	}
 

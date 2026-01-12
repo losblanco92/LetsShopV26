@@ -5,10 +5,11 @@ import org.testng.annotations.Test;
 
 import pageObjects.RegistrationPage;
 import testBase.BaseClass;
+import testBase.TestNGBase;
 import utilities.Retry;
 import utilities.TestDataUtils;
 
-public class AccountRegistrationTest extends BaseClass {
+public class AccountRegistrationTest extends TestNGBase {
 
 	@Test(groups = "Retry",retryAnalyzer = Retry.class)
 	public void verify_account_registration() {

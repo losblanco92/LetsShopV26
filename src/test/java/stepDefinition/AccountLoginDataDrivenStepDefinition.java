@@ -6,13 +6,14 @@ import hooks.Hooks;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import pageObjects.LoginPage;
+import testBase.BaseClass;
 import utilities.CucumberExcelReader;
 
-public class AccountLoginDataDrivenStepDefinition {
+public class AccountLoginDataDrivenStepDefinition extends BaseClass {
 
 	CucumberExcelReader excel;
 	String expectedResult;
-    
+	LoginPage loginPage = new LoginPage(getDriver());
 
 
 	@Given("^User enters the vaild email and password from excel row (.+)$")
@@ -27,17 +28,17 @@ public class AccountLoginDataDrivenStepDefinition {
 		String password = excel.getCellData("Sheet1", "Password", rowIndex);
 		expectedResult = excel.getCellData("Sheet1", "Result", rowIndex);
 
-		Hooks.loginPage.loginApp(username, password);
+		loginPage.loginApp(username, password);
 	}
 
 	@Then("the user should be successfully logged in when valid credentails are entered")
 	public void verify_login_using_excel_row() {
 
-		boolean signOut = Hooks.loginPage.signOut();
+		boolean signOut = loginPage.signOut();
 
 		if (expectedResult.equalsIgnoreCase("Valid")) {
 			if (signOut == true) {
-				Hooks.loginPage.clickSignOut();
+				loginPage.clickSignOut();
 				Assert.assertTrue(true);
 
 			}
@@ -49,7 +50,7 @@ public class AccountLoginDataDrivenStepDefinition {
 
 		if (expectedResult.equalsIgnoreCase("Invalid")) {
 			if (signOut == true) {
-				Hooks.loginPage.clickSignOut();
+				loginPage.clickSignOut();
 				Assert.assertTrue(false);
 			}
 

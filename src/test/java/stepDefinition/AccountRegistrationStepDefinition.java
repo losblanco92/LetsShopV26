@@ -6,15 +6,18 @@ import hooks.Hooks;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
+import pageObjects.LoginPage;
 import pageObjects.RegistrationPage;
+import testBase.BaseClass;
 
-public class AccountRegistrationStepDefinition {
+public class AccountRegistrationStepDefinition extends BaseClass {
 
+	LoginPage loginPage = new LoginPage(getDriver());
 	RegistrationPage registrationPage;
 
 	@Given("I navigate to the registration page")
 	public void i_navigate_to_the_registration_page() {
-		registrationPage = Hooks.loginPage.goToregisterAccount();
+		registrationPage = loginPage.goToregisterAccount();
 	}
 
 	@When("^I enter first name (.+)$")

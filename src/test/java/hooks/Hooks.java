@@ -11,7 +11,6 @@ import testBase.BaseClass;
 
 public class Hooks extends BaseClass {
 
-    public static LoginPage loginPage;
 
     @Before
     public void setUp() throws Exception {

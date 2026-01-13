@@ -17,6 +17,7 @@ import testBase.BaseClass;
 
 public class SubmitOrderStepDefinition extends BaseClass {
 	
+
 	public ProductCataloguePage productCataloguePage;
 	public PaymentPage paymentPage;
 	public MyCartPage myCartPage;
@@ -25,8 +26,9 @@ public class SubmitOrderStepDefinition extends BaseClass {
     @Given("^User logged in with username(.+) and password(.+)$")
 	public void user_logged_in_with_username_and_password(String username, String password)
     {
+    	LoginPage loginPage = new LoginPage(getDriver());
     	
-    	productCataloguePage = Hooks.loginPage.loginApp(username.trim(), password.trim());
+    	productCataloguePage = loginPage.loginApp(username.trim(), password.trim());
 
 
 	}
